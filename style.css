@@ -1,0 +1,253 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif
+}
+
+.App {
+    text-align: center
+}
+
+.App-logo {
+    -webkit-animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px
+}
+
+.App-header {
+    background-color: #222;
+    height: 150px;
+    padding: 20px;
+    color: #fff
+}
+
+.App-title {
+    font-size: 1.5em
+}
+
+.App-intro {
+    font-size: large
+}
+
+@-webkit-keyframes App-logo-spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+    to {
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn)
+    }
+}
+
+@keyframes App-logo-spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+    to {
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn)
+    }
+}
+
+.media-body {
+    -webkit-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    transform: scale(1.5)
+}
+
+body, html {
+    max-height: 100%;
+    overflow: hidden
+}
+
+.videoInsert, .vidjoo {
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    background-size: cover;
+    overflow: hidden
+}
+
+.videoInsert {
+    position: inherit
+}
+
+#video_overlays {
+    margin: auto 2em;
+    position: fixed;
+    text-align: center;
+    top: 50%;
+    left: 0;
+    right: 0
+}
+
+h1 {
+    color: #000
+}
+
+img {
+    display: block;
+    width: 50%;
+    margin-lefT: auto;
+    margin-right: auto
+}
+
+p {
+    padding: .5vmin;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone
+}
+
+a {
+    font-family: Helvetica, Lucida Grande, sans-serif;
+    font-weight: 700;
+    color: #00f0
+}
+
+#svg {
+    content: "";
+    position: relative;
+    display: inline-block;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0
+}
+
+.mbox {
+    -webkit-transform: scale(.75) translateY(20%);
+    -ms-transform: scale(.75) translateY(20%);
+    transform: scale(.75) translateY(20%);
+    overflow: visible;
+    height: 200%
+}
+
+.mobile {
+    position: absolute
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100vh;
+    grid-template-areas: "dbox1 dbox2 dbox3";
+    height: 200%;
+    margin-bottom: 20%;
+    -ms-flex-align: center;
+    align-items: center;
+    justify-items: center
+}
+
+.dbox1 {
+    grid-area: dbox1;
+    -webkit-transform: scale(.7);
+    -ms-transform: scale(.7);
+    transform: scale(.7);
+    -webkit-filter: invert(100%);
+    filter: invert(100%)
+}
+
+.dbox2 {
+    grid-area: dbox2
+}
+
+.dbox3 {
+    grid-area: dbox3;
+    -webkit-filter: invert(100%);
+    filter: invert(100%)
+}
+
+#dvid {
+    margin-top: -26%
+}
+
+p#contact {
+    margin-top: 20%
+}
+
+video#bgvid {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%) scale(.75);
+    background-size: cover
+}
+
+#demo {
+    width: 30px;
+    height: 30px;
+    border: none
+}
+
+.butn {
+    background: "url(http://choker.cc/assets/play.png) no-repeat"
+}
+
+#mplayer, #player {
+    height: 0;
+    width: 0
+}
+
+.speaker {
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%)
+}
+
+.mspeaker, .speaker {
+    background-image: url(http://choker.cc/assets/micon.png);
+    background-repeat: no-repeat;
+    background-size: 200%;
+    background-position: 100% 0;
+    height: 64px;
+    width: 60px;
+    cursor: pointer;
+    top: 150px;
+    left: 200px;
+    display: block;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.mspeakerplay, .speakerplay {
+    background-position: 0 0
+}
+
+.deskmusicbox {
+    margin-top: 70%
+}
+
+.deskmusicbox, .mobilemusicbox {
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.mobilemusicbox {
+    -webkit-transform: scale(.5) translateY(-320%);
+    -ms-transform: scale(.5) translateY(-320%);
+    transform: scale(.5) translateY(-320%)
+}
+
+video::-webkit-media-controls-start-playback-button {
+    display: none!important;
+    -webkit-appearance: none
+}
+
+/*# sourceMappingURL=main.3f4588f0.css.map*/
