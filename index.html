@@ -53,11 +53,17 @@
         }
         
         .small {
-            font-size: 16px
+            font-size: 16px;
+            margin-top: 6%;
         }
         .weekly {
-            font-size: 16px;
-            text-decoration: underline
+            font-size: 20px;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .weekly:hover {
+            color: white;
         }
 
         .reg {
@@ -66,6 +72,14 @@
 
         .big{
             margin-bottom: 8%;
+        }
+
+        img {
+            cursor: pointer;
+        }
+
+        .toggled-links {
+            font-size: 18px;
         }
 
         @media screen and (max-width: 1024px) {
@@ -143,19 +157,21 @@
                         <li class="reg"><a href="http://www.soundcloud.com/quijano">SOUNDCLOUD</a></li>
                         <li class="reg"><a href="http://www.instagram.com/dj.quijano">INSTAGRAM</a></li>
                         <li class="space"><a href="http://www.twitter.com/djquijano">TWITTER</a></li>
-                        <li class="weekly">BIWEEKLY PLAYLIST:</li>
-                        <li><a href="https://itunes.apple.com/us/playlist/biweekly/pl.u-aZb0135uPV7XZ9">APPLE MUSIC</a></li>
-                        <li class="space"><a href="https://open.spotify.com/user/1254276734/playlist/3lyUqJ9ezy21siyE94iatu?si=uam6hWIlTN2RDoWAGRfxww">SPOTIFY</a></li>
-                        <li class="small reg"><a href="mailto:val.moveset@gmail.com">CONTACT</a></li>
+                        <li class="weekly">BIWEEKLY PLAYLIST</li>
+                        <div class="toggled">
+                                <li class="toggled-links"><a href="https://itunes.apple.com/us/playlist/biweekly/pl.u-aZb0135uPV7XZ9">APPLE MUSIC</a></li>
+                                <li class="toggled-links"><a href="https://open.spotify.com/user/1254276734/playlist/3lyUqJ9ezy21siyE94iatu?si=uam6hWIlTN2RDoWAGRfxww">SPOTIFY</a></li>    
+                        </div>
+                        <li class="small"><a href="mailto:val.moveset@gmail.com">CONTACT</a></li>
                     </ul>
                 </div>
                 <div class="col m4">
-                    <video width="100%" autoplay="true" loop="true" playsinline="" muted>
-                        <source src="/assets/IMG_0698.mp4" type="video/mp4">
+                    <video id="webVideo" width="100%" autoplay="true" loop="true" playsinline="" muted>
+                        <source src="./assets/IMG_0698.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="play col m4 center-align">
-                    <img id="playOptions" src="/assets/play.png" height="50px" width="50px" onclick="swap()">
+                    <img id="playOptions" src="./assets/play.png" height="50px" width="50px" onclick="swap()">
                 </div>
             </div>
         </div>
@@ -168,25 +184,35 @@
             <li class="reg"><a href="http://www.soundcloud.com/quijano">SOUNDCLOUD</a></li>
             <li class="reg"><a href="http://www.instagram.com/dj.quijano">INSTAGRAM</a></li>
             <li class="space"><a href="http://www.twitter.com/djquijano">TWITTER</a></li>
-            <li class="weekly">BIWEEKLY PLAYLIST:</li>
-            <li><a href="https://itunes.apple.com/us/playlist/biweekly/pl.u-aZb0135uPV7XZ9">APPLE MUSIC</a></li>
-            <li class="space"><a href="https://open.spotify.com/user/1254276734/playlist/3lyUqJ9ezy21siyE94iatu?si=uam6hWIlTN2RDoWAGRfxww">SPOTIFY</a></li>
+            <li class="weekly">BIWEEKLY PLAYLIST</li>
+            <div class="toggled">
+                <li class="toggled-links"><a href="https://itunes.apple.com/us/playlist/biweekly/pl.u-aZb0135uPV7XZ9">APPLE MUSIC</a></li>
+                <li class="toggled-links"><a href="https://open.spotify.com/user/1254276734/playlist/3lyUqJ9ezy21siyE94iatu?si=uam6hWIlTN2RDoWAGRfxww">SPOTIFY</a></li>    
+            </div>
             <li class="small big"><a href="mailto:val.moveset@gmail.com">CONTACT</a></li>
-            <li><img id="playOptionsMobile" src="assets/play.png"  height="50px" width="50px" onclick="swapMobile()"></li>
+            <li><img id="playOptionsMobile" src="./assets/play.png"  height="50px" width="50px" onclick="swapMobile()"></li>
         </ul>
     </div>
 </body>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script>
+    $(document).ready(function(){
+        $('.toggled').hide();
+    })
+    $('.weekly').click(function() {
+        $('.toggled').slideToggle("slow");
+    });
+
     let song = new Audio("assets/song.wav")
     let swap = () => {
         if (document.getElementById("playOptions").src.endsWith('play.png')) {
-            document.getElementById('playOptions').src = "assets/stop.png"
+            document.getElementById('playOptions').src = "./assets/stop.png"
             document.getElementById('playOptionsMobile').src = document.getElementById('playOptions').src
             song.play();
 
         }
         else if (document.getElementById("playOptions").src.endsWith('stop.png')) {
-            document.getElementById('playOptions').src = "assets/play.png"
+            document.getElementById('playOptions').src = "./assets/play.png"
             document.getElementById('playOptionsMobile').src = document.getElementById('playOptions').src
             song.pause();
             song.currentTime = 0;
@@ -195,17 +221,31 @@
 
     let swapMobile = () => {
         if (document.getElementById("playOptionsMobile").src.endsWith('play.png')) {
-            document.getElementById('playOptionsMobile').src = "assets/stop.png"
+            document.getElementById('playOptionsMobile').src = "./assets/stop.png"
             document.getElementById('playOptions').src = document.getElementById('playOptionsMobile').src
             song.play();
 
         }
         else if (document.getElementById("playOptionsMobile").src.endsWith('stop.png')) {
-            document.getElementById('playOptionsMobile').src = "assets/play.png"
+            document.getElementById('playOptionsMobile').src = "./assets/play.png"
             document.getElementById('playOptions').src = document.getElementById('playOptionsMobile').src
             song.pause();
             song.currentTime = 0;
         }
     }
+
+    let videoMobile = document.getElementById("background-video")
+    let videoWeb = document.getElementById("webVideo")
+
+    $( window ).resize(function(){
+        if (window.innerWidth <= 500) {
+            videoMobile.currentTime = 0;
+            videoMobile.play();
+        }
+        else if (window.innerWidth >= 768) {
+            videoWeb.currentTime = 0;
+        }
+    })
+
 </script>
 </html>
